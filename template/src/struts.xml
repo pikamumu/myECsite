@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- Strutsの詳細設定 -->
+<struts>
+<!-- このプロジェクトで使うActionファイルが保存されていることを宣言 -->
+<!-- constant=定数　定まったもの。devMode="true"で無視出来るようなエラーも教えてくれる -->
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.template.action2" extends="struts-default">
+
+	<!-- HomeAction -->
+	<action name="HomeAction" class="com.internousdev.template.action2.HomeAction"
+		method="execute">
+			<result name="success">login.jsp</result>
+		</action>
+	<!-- LoginAction -->
+	<!-- LoginActionクラスの中でexecuteメソッドが最初に呼び出される -->
+	<!-- com.internousdev.template.action2パッケージのLoginActionに設定-->
+	<action name="LoginAction" class="com.internousdev.template.action2.LoginAction"
+	 method="execute">
+
+		<!-- executeメソッドの結果に応じてフロントに送るjspファイルを設定 -->
+		<result name="success">buyItem.jsp</result>
+		<result name="error">home.jsp</result>
+		</action>
+
+		<!-- UserCreateAction -->
+		<action name="UserCreateAction" class="com.internousdev.template.action2.UserCreateAction"
+		method="execute">
+			<result name="success">userCreate.jsp</result>
+		</action>
+
+		<!-- UserCreateConfirmAction -->
+		<action name="UserCreateConfirmAction" class="com.internousdev.template.action2.UserCreateConfirmAction"
+		method="execute">
+			<result name="success">userCreateConfirm.jsp</result>
+			<result name="error">userCreate.jsp</result>
+		</action>
+
+		<!-- UserCreateCompleteAction -->
+		<action name="UserCreateCompleteAction" class="com.internousdev.template.action2.UserCreateCompleteAction"
+		method="execute">
+			<result name="success">userCreateComplete.jsp</result>
+		</action>
+		<!-- BuyItemAction -->
+		<action name="BuyItemAction" class="com.internousdev.template.action2.BuyItemAction"
+		method="execute">
+			<result name="success">buyItemConfirm.jsp</result>
+		</action>
+		<!-- BuyItemConfirmAction -->
+		<action name="BuyItemConfirmAction" class="com.internousdev.template.action2.BuyItemConfirmAction"
+		method="execute">
+			<result name="success">buyItemComplete.jsp</result>
+		</action>
+
+<!-- MyPageAction -->
+		<action name="MyPageAction" class="com.internousdev.template.action2.MyPageAction"
+		method="execute">
+			<result name="success">myPage.jsp</result>
+		</action>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</package>
+</struts>
+
+<!-- 設定ファイル。javaの処理結果に応じて表示する画面ファイルの設定を記述、Strutsﾌﾚｰﾑﾜｰｸのみで利用 -->
